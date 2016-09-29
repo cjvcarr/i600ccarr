@@ -1,6 +1,6 @@
 # make_server is used to create this simple python webserver
 from wsgiref.simple_server import make_server
-import erik
+import chris
 
 # Function that is ran when a http request comes in
 def light_app(env, start_response):
@@ -13,13 +13,13 @@ def light_app(env, start_response):
     # What did the user ask for?
     if env["PATH_INFO"] == "/on":
         print("user asked for /on")
-        erik.cleanLed()
-        erik.redOn()
+        chris.cleanLed()
+        chris.redOn()
         return "<!DOCTYPE html><html><head><title>\"Lights\"</title></head><body><a title=\"off\" href=\"/off\">Off</a></body></html>"          
 
     elif env["PATH_INFO"] == "/off":
         print("user asked for /off")
-        erik.cleanLed()
+        chris.cleanLed()
         return "<!DOCTYPE html><html><head><title>\"Lights\"</title></head><body><a title=\"On\" href=\"/on\">On</a></body></html>"          
     else:
         print("user asked for something else")
